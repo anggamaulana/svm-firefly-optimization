@@ -1,5 +1,5 @@
 from metaheuristic_algorithms.firefly_algorithm import FireflyAlgorithm
-from metaheuristic_algorithms.function_wrappers.rosenbrook_function_wrapper import RosenbrookFunctionWrapper
+
 
 from sklearn.feature_extraction.text import CountVectorizer 
 from sklearn.feature_extraction.text import TfidfTransformer
@@ -7,12 +7,10 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import accuracy_score
 import re
 from sklearn.svm import SVC
-from sklearn.multiclass import OneVsRestClassifier
+
 
 from sklearn.model_selection import StratifiedKFold
 
-import sys
-import pandas as pd
 
 
 # 1. INIT DATASET==================================================
@@ -89,7 +87,7 @@ def tokenize(text):
 def Train(subset_X,subset_y,pars):    
     text_clf = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
     ('tfidf', TfidfTransformer()),
-    ('clf', OneVsRestClassifier(SVC(C=pars[0], gamma=pars[1]))),
+    ('clf', SVC(C=pars[0], gamma=pars[1])),
     ])
     clf=text_clf.fit(subset_X,subset_y)
     return clf
