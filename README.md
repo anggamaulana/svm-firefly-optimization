@@ -7,6 +7,8 @@ to find best C and Gamma params in Scikit SVM
 
 Sample dataset 50-50, I am only use some fraction of dataset from my friend just for demo purpose, and not posting full dataset.
 
+Cross validation with K-folds, adding more dataset will increase accuracy, in this demo we only got 65 to 70% accuracy.
+
 ========
 
 Implementasi algoritma firefly pada SVM untuk mencari parameter C dan Gamma terbaik
