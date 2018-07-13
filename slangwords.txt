@@ -1,0 +1,15 @@
+{'tlg ' : 'tolong ','dwpan' : 'depan','dwngan' : 'dengan','byk' : 'banyak','smoga' : 'semoga','kpn' : 'kapan','sdh' : 'sudah','kelwbihan' : 'kelebihan','smua' : 'semua','brani' : 'berani',' tlng ' : ' tolong ','jgn2' : 'jangan-jangan','bagusn' : 'bagusan','lmynlh' : 'lumayanlah',' ngk ' : ' enggak ',' bner ' : ' bener ',' blom ' : ' belum ',' pk ' : ' pakai ','maff' : 'maaf',' ama ' : ' sama ','splikasi' : 'aplikasi','tu' : 'itu','dnk' : 'dong','and' : 'dan','knp' : 'kenapa','gk' : 'gak','klu' : 'kalau','bli' : 'beli',
+'bncmark' : 'benchmark','bsa' : 'bisa','awal2' : 'awal-awal','ttg' : 'tentang',
+'udh' : 'udah','blm' : 'belum','msuk' : 'masuk','abg' : 'abang',' d ' : 'di','klo' : 'kalau','brp' : 'berapa','kalu' : 'kalau',
+'reales' : 'rilis','diindonesia' : 'di indonesia','blon' : 'belum','gmn' : 'gimana',
+'gmna' : 'gimana','jwb' : 'jawab','yng' : 'yang','yg' : 'yang','syng' : 'sayang',
+'bgs' : 'bagus','idup' : 'hidup','dgn' : 'dengan','dimalaysia' : 'di malaysia',
+'dpn' : 'depan','dpnx' : 'depannya','blkng' : 'belakang','ngak' : 'enggak','dripada' : 'daripada','bgt' : 'banget','bda' : 'beda','pke' : 'pake','kpke' : 'kepakai',' k ' : 'ke','bw' : 'bawa','bs' : 'bisa','knapa' : 'kenapa','hpx' : 'hapenya','bgus2' : 'bagus-bagus','bls' : 'balas','g' : 'gak','lg' : 'lagi','ttp' : 'tetap','km' : 'kamu','dr' : 'dari','tmn2' : 'teman-teman','pd' : 'pada','blakang' : 'belakang','dri' : 'dari','skrg' : 'sekarang','ak' : 'aku','jg' : 'juga','gpp' : 'gapapa',
+'wktu' : 'waktu','tmpt' : 'tempat','dibles' : 'dibales','karna' : 'karena',
+'stelan' : 'setelan','kwalitas' : 'kualitas','tdk' : 'tidak','jga' : 'juga','mnta' : 'minta',
+'lbih' : 'lebih','riwue' : 'review','skligus' : 'sekaligus','Ccok' : 'cocok',' tsb' : ' tersebut',' mksi' : 'makasi','rata2' : 'rata-rata','kerpatan' : 'kerapatan','Spekx' : 'speknya','Lmynlah' : 'lumayanlah','smaa' : 'sama','abng' : 'abang',' tp' : ' tp','vidio' : 'video','Pdhl' : 'Padahal'
+,'bg ':'bang ','skrng ':'sekarang',' n ':' dan ','jd ':'jadi ','bwat':'buat',' sgt ':' sangat ',' sya ':' saya ','linkaran':'lingkaran','lbh':'lebih',' tp ':' tapi ','tny':'tanya','mnding':'mending','mna':'mana','nggk':'enggak','sdar':'sadar',
+'mntep':'mantep','jngan':'jangan','revwnya':'reviewnya','bwt':'buat',
+'vdionya':'videonya','dlm':'dalam','pnya':'punya','sbelum':'sebelum',
+'blum':'belum','mklum':'maklum','adl':'adalah','aada':'ada','aadoh':'aduh','aanjeeengggg':'anjing',
+'aatau':'atau','abiiissss':'abis','abiis':'abis','gile':'gila'}
