@@ -1,0 +1,8 @@
+FOLD ke2
+Akurasi : 0.5185185185185185
+FOLD ke3
+Akurasi : 0.7407407407407407
+FOLD ke4
+Akurasi : 0.5
+TESTING
+Akurasi : 0.5

@@ -8,9 +8,10 @@ from sklearn.metrics import accuracy_score
 import re
 from sklearn.svm import SVC
 
+from sklearn.model_selection import train_test_split
 
 from sklearn.model_selection import StratifiedKFold
-
+import sys
 
 
 # 1. INIT DATASET==================================================
@@ -41,6 +42,9 @@ for i in range(jumlah_positif):
 
 X=contentnegatif+contentpositif
 y=label
+
+X, X_test, y, y_test = train_test_split(X, y, test_size=0.20)
+
 
 # PREPROCESSING
 # Slangword
@@ -171,17 +175,19 @@ def SearchFireFly(subset_X_train,subset_y_train,subset_X_test,subset_y_test):
       absorption_coefficient_gamma=absorption_coefficient_gamma)
 
   print("Parameter terbaik : "+str(result["best_decision_variable_values"])) 
-  print("Akurasi terbaik : "+str(result["best_objective_function_value"]) )  
+  print("Akurasi terbaik : "+str(result["best_objective_function_value"]) ) 
+  return result 
 
 def KFOLDS(kf):
     skf = StratifiedKFold(n_splits=kf)
     folds=skf.split(X, y)
 
     fold=1
+    REPORT=""
 
     for train_index, test_index in folds:
         print ("\n\nFOLDS="+str(fold))
-        fold+=1
+        
 
         
         training_X=[]
@@ -200,10 +206,26 @@ def KFOLDS(kf):
 
 
         # SearchingParameters(training_X,training_y,testing_X,testing_y,[0.5])
+        # Firefly untuk cross validation
+        res=SearchFireFly(training_X,training_y,testing_X,testing_y)
 
-        SearchFireFly(training_X,training_y,testing_X,testing_y)
+        REPORT+="FOLD ke"+str(fold)+"\n"
+        REPORT+="Parameter terbaik : "+str(res["best_decision_variable_values"])+"\n"
+        REPORT+="Akurasi terbaik : "+str(res["best_objective_function_value"])+"\n"
+        fold+=1
 
 
-KFOLDS(5)
+    # TESTING
+    res2=SearchFireFly(X,y,X_test,y_test)
+    REPORT+="TESTING\n"
+    REPORT+="Parameter terbaik : "+str(res2["best_decision_variable_values"])+"\n"
+    REPORT+="Akurasi terbaik : "+str(res2["best_objective_function_value"])+"\n"
+
+    text_file = open("Output_firefly.txt", "w")
+    text_file.write(REPORT)
+
+
+
+KFOLDS(3)
 
 # START SEARCHING END==================================================
