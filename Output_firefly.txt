@@ -1,12 +1,96 @@
 FOLD ke1
-Parameter terbaik : [0.6826046453977097, 0.8041098411812996]
-Akurasi terbaik : 0.7037037037037037
+generation : 0
+best_decision_variable_values : [0.703524167357473, 0.8988126147324966]
+best_objective_function_value : 0.7857142857142857
+
+
+generation : 1
+best_decision_variable_values : [0.703524167357473, 0.8988126147324966]
+best_objective_function_value : 0.7857142857142857
+
+
+generation : 2
+best_decision_variable_values : [0.703524167357473, 0.8988126147324966]
+best_objective_function_value : 0.7857142857142857
+
+
+generation : 3
+best_decision_variable_values : [0.703524167357473, 0.8988126147324966]
+best_objective_function_value : 0.7857142857142857
+
+
+generation : 4
+best_decision_variable_values : [0.703524167357473, 0.8988126147324966]
+best_objective_function_value : 0.7857142857142857
+
+
+Parameter terbaik : [0.703524167357473, 0.8988126147324966]
+Akurasi terbaik : 0.7857142857142857
+
+
+
 FOLD ke2
-Parameter terbaik : [0.9411726836902921, 0.9007134976836474]
-Akurasi terbaik : 0.7407407407407407
+generation : 0
+best_decision_variable_values : [0.5860942942235247, 0.912140474668109]
+best_objective_function_value : 0.6153846153846154
+
+
+generation : 1
+best_decision_variable_values : [0.5860942942235247, 0.912140474668109]
+best_objective_function_value : 0.6153846153846154
+
+
+generation : 2
+best_decision_variable_values : [0.5860942942235247, 0.912140474668109]
+best_objective_function_value : 0.6153846153846154
+
+
+generation : 3
+best_decision_variable_values : [0.5860942942235247, 0.912140474668109]
+best_objective_function_value : 0.6153846153846154
+
+
+generation : 4
+best_decision_variable_values : [0.5860942942235247, 0.912140474668109]
+best_objective_function_value : 0.6153846153846154
+
+
+Parameter terbaik : [0.5860942942235247, 0.912140474668109]
+Akurasi terbaik : 0.6153846153846154
+
+
+
 FOLD ke3
-Parameter terbaik : [0.959323447729104, 0.8505977019666495]
-Akurasi terbaik : 0.7692307692307693
+generation : 0
+best_decision_variable_values : [0.5951158687029661, 0.5057339975882179]
+best_objective_function_value : 0.5384615384615384
+
+
+generation : 1
+best_decision_variable_values : [0.5951158687029661, 0.5057339975882179]
+best_objective_function_value : 0.5384615384615384
+
+
+generation : 2
+best_decision_variable_values : [0.5951158687029661, 0.5057339975882179]
+best_objective_function_value : 0.5384615384615384
+
+
+generation : 3
+best_decision_variable_values : [0.5951158687029661, 0.5057339975882179]
+best_objective_function_value : 0.5384615384615384
+
+
+generation : 4
+best_decision_variable_values : [0.5951158687029661, 0.5057339975882179]
+best_objective_function_value : 0.5384615384615384
+
+
+Parameter terbaik : [0.5951158687029661, 0.5057339975882179]
+Akurasi terbaik : 0.5384615384615384
+
+
+
 TESTING
-Parameter terbaik : [0.6064740608190814, 0.8276899605647131]
-Akurasi terbaik : 0.75
+Parameter terbaik : 0.703524167357473,0.8988126147324966
+Akurasi : 0.55

@@ -1,4 +1,4 @@
-from metaheuristic_algorithms.firefly_algorithm import FireflyAlgorithm
+from metaheuristic_custom.firefly_algorithm import FireflyAlgorithm
 
 
 from sklearn.feature_extraction.text import CountVectorizer 
@@ -73,6 +73,8 @@ X=wordFiltered #berisi data yg telah di slangword dan stop word
 
 
 
+
+
 # INIT DATASET END==================================================
 
 
@@ -103,12 +105,12 @@ def Testing(clf,subset_X,subset_y):
     acc=accuracy_score(expected, predicted)
 
     # cm=metrics.confusion_matrix(expected, predicted).astype(int)
-    print("Accuracy "+str(acc))
+    # print("Accuracy "+str(acc))
     return acc
 
 def SearchingParameters(train_X,train_y,test_X,test_y,pars):
     cl=Train(train_X,train_y,pars)
-    print ("Parameters : "+str(pars))
+    # print ("Parameters : "+str(pars))
     return Testing(cl,test_X,test_y)
 
 
@@ -126,7 +128,7 @@ nilai_max_pars=[1.0,1.0]
 nilai_awal_pars=[0.3,0.001]
 
 
-from metaheuristic_algorithms.function_wrappers.abstract_wrapper import AbstractWrapper
+from metaheuristic_custom.function_wrappers.abstract_wrapper import AbstractWrapper
 
 class PencarianSVMParameter(AbstractWrapper):
 
@@ -136,6 +138,8 @@ class PencarianSVMParameter(AbstractWrapper):
 
         self.subset_X_test=subset_X_test
         self.subset_y_test=subset_y_test
+        self.REPORT=""
+        self.LOGGING=[]
 
 
     def maximum_decision_variable_values(self):
@@ -149,6 +153,21 @@ class PencarianSVMParameter(AbstractWrapper):
 
     def initial_decision_variable_value_estimates(self):
         return nilai_awal_pars
+
+    def logging(self,datas):
+        
+        for k,v in datas.items():
+            nilai=str(k)+" : "+str(v)+"\n"
+            self.REPORT+=nilai
+            # print(nilai)
+
+        self.REPORT+="\n\n"
+        self.LOGGING.append(datas)
+        # print("\n")
+
+    def report(self):
+        return self.REPORT
+    
 
 
 
@@ -174,22 +193,29 @@ def SearchFireFly(subset_X_train,subset_y_train,subset_X_test,subset_y_test):
       randomization_parameter_alpha=randomization_parameter_alpha, 
       absorption_coefficient_gamma=absorption_coefficient_gamma)
 
+  print(fc.report())
+
   print("Parameter terbaik : "+str(result["best_decision_variable_values"])) 
   print("Akurasi terbaik : "+str(result["best_objective_function_value"]) ) 
-  return result 
+  return result,fc.report(),fc.LOGGING 
 
 def KFOLDS(kf):
     skf = StratifiedKFold(n_splits=kf)
     folds=skf.split(X, y)
 
     fold=1
+
     REPORT=""
+    REPORT_EXCEL=""
+    best_gamma=0
+    best_c=0
+    best_acc=0
+    
 
     for train_index, test_index in folds:
         print ("\n\nFOLDS="+str(fold))
         
 
-        
         training_X=[]
         training_y=[]
         testing_X=[]
@@ -207,22 +233,42 @@ def KFOLDS(kf):
 
         # SearchingParameters(training_X,training_y,testing_X,testing_y,[0.5])
         # Firefly untuk cross validation
-        res=SearchFireFly(training_X,training_y,testing_X,testing_y)
+        res,report,logs=SearchFireFly(training_X,training_y,testing_X,testing_y)
+
+        if res["best_objective_function_value"]>best_acc:
+            best_acc=res["best_objective_function_value"]
+            best_c=res["best_decision_variable_values"][0]
+            best_gamma=res["best_decision_variable_values"][1]
+
+        
+        for log in logs:
+            REPORT_EXCEL+=str(fold)+","
+            REPORT_EXCEL+=str(log["generation"])+","
+            REPORT_EXCEL+=str(log["best_decision_variable_values"][0])+","
+            REPORT_EXCEL+=str(log["best_decision_variable_values"][1])+","
+            REPORT_EXCEL+=str(log["best_objective_function_value"])+"\n"
+        
+
 
         REPORT+="FOLD ke"+str(fold)+"\n"
+        REPORT+= report
         REPORT+="Parameter terbaik : "+str(res["best_decision_variable_values"])+"\n"
-        REPORT+="Akurasi terbaik : "+str(res["best_objective_function_value"])+"\n"
+        REPORT+="Akurasi terbaik : "+str(res["best_objective_function_value"])+"\n\n\n\n"
         fold+=1
 
 
     # TESTING
-    res2=SearchFireFly(X,y,X_test,y_test)
+    # res2,report=SearchFireFly(X,y,X_test,y_test)
+    res2=SearchingParameters(X,y,X_test,y_test,[best_c,best_gamma])
     REPORT+="TESTING\n"
-    REPORT+="Parameter terbaik : "+str(res2["best_decision_variable_values"])+"\n"
-    REPORT+="Akurasi terbaik : "+str(res2["best_objective_function_value"])+"\n"
+    REPORT+="Parameter terbaik : "+str(best_c)+","+str(best_gamma)+"\n"
+    REPORT+="Akurasi : "+str(res2)+"\n"
 
     text_file = open("Output_firefly.txt", "w")
     text_file.write(REPORT)
+
+    csv_file = open("csv_firefly.csv", "w")
+    csv_file.write(REPORT_EXCEL)
 
 
 
