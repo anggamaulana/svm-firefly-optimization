@@ -1,7 +1,7 @@
 # svm-firefly-optimization
 This is my Implementation of firefly to find best C-Gamma Parameters for SVM, Optimisasi C dan Gamma parameter pada SVM
 
-This is my implementation of firefly algorithm by todatoshi (https://github.com/tadatoshi/metaheuristic_algorithms_python) 
+i did some customization from firefly algorithm implementaion by todatoshi (https://github.com/tadatoshi/metaheuristic_algorithms_python) 
 
 to find best C and Gamma params in Scikit SVM
 
